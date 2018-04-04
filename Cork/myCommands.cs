@@ -6,19 +6,20 @@ using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
-
+using System.Runtime.InteropServices;
+ 
 // This line is not mandatory, but improves loading performances
 [assembly: CommandClass(typeof(Cork.MyCommands))]
 
 namespace Cork
 {
-
     // This class is instantiated by AutoCAD for each document when
     // a command is called by the user the first time in the context
     // of a given document. In other words, non static data in this class
     // is implicitly per-document!
     public class MyCommands
     {
+
         // The CommandMethod attribute can be applied to any public  member 
         // function of any public class.
         // The function should take no arguments and return nothing.

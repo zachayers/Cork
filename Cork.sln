@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cork", "Cork\Cork.csproj", "{ED445D68-D972-45F2-9BCB-C7ED467AA6EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cork_3dUtils", "Cork_3dUtils\Cork_3dUtils.csproj", "{9D31293C-CE8B-4AE8-9CB3-34C5A22CA37D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ED445D68-D972-45F2-9BCB-C7ED467AA6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED445D68-D972-45F2-9BCB-C7ED467AA6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED445D68-D972-45F2-9BCB-C7ED467AA6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D31293C-CE8B-4AE8-9CB3-34C5A22CA37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D31293C-CE8B-4AE8-9CB3-34C5A22CA37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D31293C-CE8B-4AE8-9CB3-34C5A22CA37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D31293C-CE8B-4AE8-9CB3-34C5A22CA37D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

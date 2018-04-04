@@ -8,11 +8,11 @@ using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 
 // This line is not mandatory, but improves loading performances
-[assembly: ExtensionApplication(typeof(Cork.MyPlugin))]
+[assembly: ExtensionApplication(typeof(Cork_3dUtils.MyPlugin))]
 
-namespace Cork
+namespace Cork_3dUtils
 {
-    
+
     // This class is instantiated by AutoCAD once and kept alive for the 
     // duration of the session. If you don't do any one time initialization 
     // then you should remove this class.
