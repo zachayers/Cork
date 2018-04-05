@@ -23,7 +23,8 @@ namespace Cork_3dUtils
     {
         // Floor Command
         // Prompts user to select objects, then select a point to align with current Z Plane
-        [CommandMethod("Floor", CommandFlags.Modal)]
+        [CommandMethod("Floor", CommandFlags.Modal |
+                                CommandFlags.NoPaperSpace)]
         public static void CmdFloorMany() // This method can have any name
         {
             // Initialize Document
