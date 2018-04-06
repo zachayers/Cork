@@ -25,7 +25,7 @@ namespace Cork_3dUtils
         // Prompts user to select objects, then select a point to align with current Z Plane
         [CommandMethod("Floor", CommandFlags.Modal |
                                 CommandFlags.NoPaperSpace)]
-        public static void CmdFloorMany() // This method can have any name
+        public static void CmdFlooR() // This method can have any name
         {
             // Initialize Document
             var acDoc = Application.DocumentManager.MdiActiveDocument;
@@ -33,7 +33,6 @@ namespace Cork_3dUtils
             var acCurEd = acDoc.Editor;
 
             // Open a Transaction
-            // Start a transaction
             using (var acTrans = acCurDb.TransactionManager.StartTransaction())
             {
                 // Set selection options for user
@@ -56,7 +55,7 @@ namespace Cork_3dUtils
                 var acSSet = selRes.Value;
 
                 // Get point from user to floor
-                var ptOpt = new PromptPointOptions("Select Vertex to align with Z Plane: ") {AllowNone = false};
+                var ptOpt = new PromptPointOptions("Select point to align with Z Plane: ") {AllowNone = false};
                 var ptRes = acCurEd.GetPoint(ptOpt);
 
                 // Exit if selection error

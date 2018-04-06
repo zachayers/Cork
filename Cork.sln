@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cork_3dUtils", "Cork_3dUtil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cork_AnnoUtils", "Cork_AnnoUtils\Cork_AnnoUtils.csproj", "{DCCF703E-5DD1-45E8-9FF1-65E22C73A1DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cork_ExternalUtils", "Cork_ExternalUtils\Cork_ExternalUtils.csproj", "{76E65921-939E-4B47-98E4-3747EFEA644B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DCCF703E-5DD1-45E8-9FF1-65E22C73A1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCCF703E-5DD1-45E8-9FF1-65E22C73A1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCCF703E-5DD1-45E8-9FF1-65E22C73A1DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E65921-939E-4B47-98E4-3747EFEA644B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E65921-939E-4B47-98E4-3747EFEA644B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E65921-939E-4B47-98E4-3747EFEA644B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E65921-939E-4B47-98E4-3747EFEA644B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

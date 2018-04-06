@@ -5,8 +5,6 @@
 using System;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.ApplicationServices;
-using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
 
 // This line is not mandatory, but improves loading performances
