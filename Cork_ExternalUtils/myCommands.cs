@@ -1,21 +1,19 @@
 ﻿// (C) Copyright 2018 by  
 //
-using System;
-using System.Diagnostics;
-using Autodesk.AutoCAD.Runtime;
-using Autodesk.AutoCAD.ApplicationServices;
+
+using Autodesk.AutoCAD.ApplicationServices.Core;
 using Autodesk.AutoCAD.Colors;
 using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.EditorInput;
-using Application = Autodesk.AutoCAD.ApplicationServices.Core.Application;
+using Autodesk.AutoCAD.Runtime;
+using Cork_ExternalUtils;
 
 // This line is not mandatory, but improves loading performances
-[assembly: CommandClass(typeof(Cork_ExternalUtils.MyCommands))]
+
+[assembly: CommandClass(typeof (MyCommands))]
 
 namespace Cork_ExternalUtils
 {
-
     // This class is instantiated by AutoCAD for each document when
     // a command is called by the user the first time in the context
     // of a given document. In other words, non static data in this class
@@ -25,7 +23,6 @@ namespace Cork_ExternalUtils
         // Material Converter
         [CommandMethod("ConvertMaterials", CommandFlags.Modal |
                                            CommandFlags.NoPaperSpace)]
-
         public void CmdConvertMaterial()
         {
             // Initialize Document
@@ -40,7 +37,7 @@ namespace Cork_ExternalUtils
                 {
                     // Create a TypedValue array to define the filter criteria
                     var acTypValAr = new TypedValue[1];
-                    acTypValAr.SetValue(new TypedValue((int)DxfCode.Start, "3DSOLID"), 0);
+                    acTypValAr.SetValue(new TypedValue((int) DxfCode.Start, "3DSOLID"), 0);
 
                     // Assign the filter criteria to a SelectionFilter object
                     var acSelFtr = new SelectionFilter(acTypValAr);
@@ -60,30 +57,41 @@ namespace Cork_ExternalUtils
                         var matDict = layDict.InitLayers();
 
                         // Get the layer table from the drawing
-                        var layTab = (LayerTable)acTrans.GetObject(acCurDb.LayerTableId, OpenMode.ForRead);
+                        var layTab = (LayerTable) acTrans.GetObject(acCurDb.LayerTableId, OpenMode.ForRead);
 
+                        // Cycle through objects
                         foreach (SelectedObject obj in acSSet)
                         {
-                            var en = (Entity)acTrans.GetObject(obj.ObjectId, OpenMode.ForWrite);
+                            // Open each entity for write
+                            var en = (Entity) acTrans.GetObject(obj.ObjectId, OpenMode.ForWrite);
                             var sol3D = en as Solid3d;
 
+                            // Check if material exists in layer dictionary
                             foreach (var mat in matDict)
                             {
+                                // If material does not match a stock layer - exit
                                 if (sol3D?.Material != mat.Name) continue;
+
+                                // If material does match - check adn create it in drawing
                                 if (!layTab.Has(mat.Name))
                                 {
-                                    var layTabRec = new LayerTableRecord();
-                                    layTabRec.Name = mat.Name;
-                                    layTabRec.Color = Color.FromColorIndex(ColorMethod.ByAci, mat.Color);
-                                    layTab.UpgradeOpen();                             
+                                    var layTabRec = new LayerTableRecord
+                                    {
+                                        Name = mat.Name,
+                                        Color = Color.FromColorIndex(ColorMethod.ByAci, mat.Color)
+                                    };
+                                    layTab.UpgradeOpen();
+
+                                    layTab.Add(layTabRec);
+                                    acTrans.AddNewlyCreatedDBObject(layTabRec, true);
                                 }
 
+                                // Set object layer to material name
                                 if (sol3D != null) sol3D.Layer = mat.Name;
                             }
-
                         }
 
-                        acCurEd.WriteMessage("\nAll Solids that match a standard layer have been converted.\n");
+                        acCurEd.WriteMessage("\nAll solids that match a standard layer have been converted.\n");
                     }
                     else
                     {
@@ -93,7 +101,7 @@ namespace Cork_ExternalUtils
                     acTrans.Commit();
                 }
 
-                catch (Autodesk.AutoCAD.Runtime.Exception ex)
+                catch (Exception ex)
                 {
                     Application.ShowAlertDialog(ex.Message);
                 }
