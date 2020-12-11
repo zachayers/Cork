@@ -1,8 +1,8 @@
 # Cork
-[![GitHub Release](https://img.shields.io/github/release/zjayers/Cork.svg?style=flat)]()
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/zjayers/Cork.svg?style=flat)]()
+[![GitHub Release](https://img.shields.io/github/release/zjayers/Cork.svg?style=flat)](https://github.com/zjayers/Cork/releases)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/zjayers/Cork.svg?style=flat)](https://github.com/zjayers/Cork/pulls)
 [![Issues](https://img.shields.io/github/issues-raw/zjayers/Cork.svg?maxAge=25000)](https://github.com/zjayers/Cork/issues)
-[![MIT License](https://img.shields.io/apm/l/atomic-ui.svg?)](https://github.com/zjayers/Cork/blob/master/LICENSEs)
+[![MIT License](https://img.shields.io/apm/l/atomic-ui.svg?)](https://github.com/zjayers/Cork/blob/master/LICENSE)
 
 ## Description
 
